@@ -4,12 +4,15 @@ A repository to spin up some test services and learn how to use Docker and Kuber
 To run this service, simply run `npm start`.
 
 ## Docker
-You can follow the official [Getting Started](https://docs.docker.com/get-started/) guide for reference. 
+You can follow the official [Getting Started](https://docs.docker.com/get-started/) guide for reference. This section contains information on how to build a single docker image, tag it, and run it! It also goes over how to push it to a registry via Docker Hub.
 
 ### Running Docker locally
 
-To run this on a local docker container, you can run the following to build a docker image:
+To run this on a local docker container, navigate to the directory with your `Dockerfile`. You can run the following to build a docker image:
 ```
+docker build --tag=tag_name directory
+
+# Example
 docker build --tag=beta-sprayer .
 ```
 
@@ -47,4 +50,3 @@ From here on out, you can use `docker run` and run your app. If the image you wa
 ```
 docker run -p 3000:8080 bliu23/beta-sprayer:0.0.0
 ```
-
