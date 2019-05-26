@@ -3,6 +3,9 @@ A repository to spin up some test services and learn how to use Docker and Kuber
 
 To run this service, simply run `npm start`.
 
+## Docker
+You can follow the official [Getting Started](https://docs.docker.com/get-started/) guide for reference. 
+
 ### Running Docker locally
 
 To run this on a local docker container, you can run the following to build a docker image:
