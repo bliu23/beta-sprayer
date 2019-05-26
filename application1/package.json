@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bliu23/beta-sprayer#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.17.1"
   }
 }
