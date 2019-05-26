@@ -6,9 +6,20 @@ To run this service, simply run `npm start`.
 ## Docker
 You can follow the official [Getting Started](https://docs.docker.com/get-started/) guide for reference. 
 
+### Basic Terminology
+* `Docker`: A platform for developers to develop, deploy, and run applications with containers. The following definitions are defined keeping in mind Docker context.
+
+* `image`: An executable package that includes everything needed to run an application -- the code, a runtime (i.e. Node 8), libraries, environment variables, and config files.
+
+* `container`: A docker container is a runtime instance of an image -- what the image becomes in memory when executed. All the code and dependencies are packaged up so the application can reliably run from one computing environment to another. The analogy that makes sense to me is that an `image` is like a `class`, and a `container` is like an `object` (instance of that class).
+
+* `repository`: A repository is a collection of images.
+
+* `registry`: A registry is a collection of repositories.
+
 ### Running Docker locally
 
-To run this on a local docker container, you can run the following to build a docker image:
+To run this service on a local docker container, you can run the following to build a docker image:
 ```
 docker build --tag=beta-sprayer .
 ```
@@ -17,6 +28,9 @@ This builds your image in your machine's local Docker image registry. Remember, 
 
 Next, you can run the app, mapping your machine's port to the container's exposed port.
 ```
+docker run -p host-port:container-port image
+
+# Example
 docker run -p 3000:8080 beta-sprayer
 ```
 
