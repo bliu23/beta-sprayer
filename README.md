@@ -1,7 +1,17 @@
 # beta-sprayer
 A repository to spin up some test services and learn how to use Docker and Kubernetes.
 
-To run this service, simply run `npm start`.
+### Usage
+
+First, install dependencies. Note you'll have to do this for each service.
+```
+npm install
+```
+
+To run:
+```
+npm start
+```
 
 ## Docker
 You can follow the official [Getting Started](https://docs.docker.com/get-started/) guide for reference. This section contains information on how to build a single docker image, tag it, and run it! It also goes over how to push it to a registry via Docker Hub.
