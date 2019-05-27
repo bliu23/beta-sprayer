@@ -1,5 +1,9 @@
 # beta-sprayer
-A repository to spin up some test services and learn how to use Docker and Kubernetes.
+In the climbing world, beta is a term used to describe the moves to complete a climb. Beta spraying is offering unsolicited advice on how to climb a route. Perhaps a repo name like `give-me-beta` would be more appropriate and have a more positive connotation...
+
+Anyhow, this repository's purpose is to host some code and instructions on how to spin up some test services and learn how to use Docker and Kubernetes.
+
+We will have two services that need to communicate with each other through a simple REST API endpoint.
 
 ### Usage
 
@@ -74,4 +78,37 @@ From here on out, you can use `docker run` and run your app. If the image you wa
 
 ```
 docker run -p 3000:8080 bliu23/beta-sprayer:0.0.0
+```
+
+## Kubernetes
+
+Install Kubernetes, minikube, and kubectl
+
+Create kubernetes deployment. The port you specify is the `containerPort`, which should match the port exposed by your Docker container. For now, this service is only accessible within the cluster.
+```
+kubectl run climbing-gym-deployment --image=bliu23/beta-sprayer-2:0.0.0 --port=8000
+```
+
+Open up another terminal window and spin up a proxy to the outside world:
+```
+kubectl proxy
+```
+If you visit localhost:8001 you can peek inside. 
+
+Now, get the pod name which you'll need in the next step
+```
+kubectl get pods
+
+NAME                                    READY     STATUS    RESTARTS   AGE
+climbing-gym-deployment-a1ph4num3r1c-c0mb0   1/1       Running   0          4m
+```
+
+Then, you can hit the service via the `kubectl proxy` command you are running, replacing `POD_NAME` with your pod's name.
+```
+curl http://localhost:8001/api/v1/namespaces/default/pods/POD_NAME/proxy/
+```
+
+When you're done, you can delete the deployment with this command:
+```
+kubectl delete deployment.apps/climbing-gym-deployment
 ```
