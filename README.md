@@ -93,6 +93,7 @@ Open up another terminal window and spin up a proxy to the outside world:
 ```
 kubectl proxy
 ```
+
 If you visit localhost:8001 you can peek inside. 
 
 Now, get the pod name which you'll need in the next step
