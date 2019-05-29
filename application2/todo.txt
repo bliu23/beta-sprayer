@@ -1,0 +1,12 @@
+What I want to learn:
+  Docker + Kubernetes (the deployment side of things)
+  Properly designing some service with clear separation of API, domain, and client layers.
+  Set up CI/CD
+
+Some things to implement:
+  Clear separation of API, domain, client layers
+  With every PR, make sure Docker + Kubernetes setup still works
+  Kubernetes setup! Some sort of deployment file and instructions on how to deploy a single pod
+  CI/CD
+  Tests??
+  Define some data model..?
