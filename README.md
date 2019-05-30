@@ -29,4 +29,4 @@ npm test
 ```
 
 ## Deployments
-If you're interested in Docker and Kubernetes, check out the (deployment.md)[./deployment.md] file.
+If you're interested in Docker and Kubernetes, check out the [deployment.md](./DEPLOYMENT.md) file.
