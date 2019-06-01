@@ -65,9 +65,10 @@ docker run -p 3000:8080 bliu23/beta-sprayer:0.0.0
 
 Install Kubernetes, minikube, and kubectl
 
+### 1a. Deploying Manually
 Create kubernetes deployment. The port you specify is the `containerPort`, which should match the port exposed by your Docker container. For now, this service is only accessible within the cluster.
 ```
-kubectl run climbing-gym-deployment --image=bliu23/beta-sprayer-2:0.0.0 --port=8000
+kubectl run beta-sprayer --image=bliu23/beta-sprayer-2:0.0.0 --port=8000
 ```
 
 Open up another terminal window and spin up a proxy to the outside world:
@@ -75,6 +76,13 @@ Open up another terminal window and spin up a proxy to the outside world:
 kubectl proxy
 ```
 
+### 1b. Deploying with a .yaml file
+Alternatively, you can use the `simple-deployment.yaml` file which represents a deployment.
+```
+kubectl apply -f simple-deployment.yaml
+```
+
+### Accessing you deployments
 If you visit localhost:8001 you can peek inside. 
 
 Now, get the pod name which you'll need in the next step
@@ -82,7 +90,7 @@ Now, get the pod name which you'll need in the next step
 kubectl get pods
 
 NAME                                    READY     STATUS    RESTARTS   AGE
-climbing-gym-deployment-a1ph4num3r1c-c0mb0   1/1       Running   0          4m
+beta-sprayer-a1ph4num3r1c-c0mb0   1/1       Running   0          4m
 ```
 
 Then, you can hit the service via the `kubectl proxy` command you are running, replacing `POD_NAME` with your pod's name.
@@ -92,5 +100,5 @@ curl http://localhost:8001/api/v1/namespaces/default/pods/POD_NAME/proxy/
 
 When you're done, you can delete the deployment with this command:
 ```
-kubectl delete deployment.apps/climbing-gym-deployment
+kubectl delete deployment.apps/beta-sprayer
 ```
