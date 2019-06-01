@@ -20,6 +20,8 @@ npm start
 You should be able to view the app at `http://localhost:8000/`.
 
 ### Testing
+Since the service is so simple (for now), we only have unit tests.
+
 To run unit tests:
 ```
 npm test
@@ -27,6 +29,13 @@ npm test
 
 ## Continuous Integration
 This project uses [CircleCI](https://circleci.com/gh/bliu23/beta-sprayer) for continuous integration. You can find more details in [.circleci/config.yml](.circleci/config.yml).
+
+Unit tests must pass before you can merge your feature branch in.
+
+### Cutting a release
+This work is still being fleshed out, but an ideal state would allow you to cut a new release [here](https://github.com/bliu23/beta-sprayer/releases/new). 
+
+This will build a new Docker image and push that to the default Docker Hub registry under the [`bliu23/beta-sprayer` repository](https://cloud.docker.com/repository/docker/bliu23/beta-sprayer).
 
 ## Deployments
 If you're interested in Docker and Kubernetes, check out the [DEPLOYMENT.md](./DEPLOYMENT.md) file.
