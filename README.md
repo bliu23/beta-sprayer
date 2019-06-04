@@ -1,9 +1,7 @@
 # beta-sprayer
-In the climbing world, beta is a term used to describe the moves to complete a climb. Beta spraying is offering unsolicited advice on how to climb a route. Perhaps a repo name like `give-me-beta` would be more appropriate and have a more positive connotation.
+In the climbing world, beta is a term used to describe the moves to complete a climb.
 
 Anyhow, this repository's purpose is to host some code and instructions on how to spin up some test services and learn how to use Docker and Kubernetes.
-
-We will have two services that need to communicate with each other through a simple REST API endpoint.
 
 ## Usage
 
